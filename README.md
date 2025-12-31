@@ -1,5 +1,7 @@
 # 🎁 Modular Gift App
 
+![Docker Build Status](https://github.com/joao1barbosa/modular-gift-app/actions/workflows/docker-publish.yml/badge.svg)
+
 Este projeto é uma aplicação interativa e altamente personalizável para pedidos de namoro, convites ou mensagens especiais. O grande diferencial é sua **arquitetura modular**: você pode alterar fotos, vídeos, cores e textos sem mexer no código, apenas configurando pastas e variáveis de ambiente via Docker.
 
 ## 📷 Demonstrações
@@ -37,6 +39,15 @@ A aplicação separa o **motor (código)** do **conteúdo (suas mídias)**. Atra
 > [!IMPORTANT]
 > Para um guia passo a passo de como colocar suas próprias fotos e textos, veja o arquivo:  
 > 📖 **[INSTRUCOES.md](./docs/INSTRUCOES.md)**
+
+---
+
+## 🚀 Deploy e Imagem Oficial
+
+A aplicação possui um pipeline de **CI/CD** configurado via GitHub Actions. Sempre que uma alteração é enviada para a branch `main`, uma nova imagem é buildada e enviada automaticamente para o Docker Hub.
+
+Você pode encontrar a imagem oficial pronta para uso aqui:  
+👉 **[hub.docker.com/r/joao1barbosa/modular-gift-app](https://hub.docker.com/r/joao1barbosa/modular-gift-app)**
 
 ---
 
