@@ -8,6 +8,7 @@ export function QuestionPage() {
   const isDesktop = useMediaQuery({ minWidth: 1025 });
 
   const onlyDesktop = import.meta.env.VITE_ONLY_DESKTOP || false;
+  const question = import.meta.env.VITE_QUESTION || "Você aceita?";
 
   if (onlyDesktop && !isDesktop){
     return (
@@ -15,19 +16,9 @@ export function QuestionPage() {
     );
   }
 
-  const imageModules = import.meta.glob(
-    "/public/question/photos/*.{png,jpg,jpeg,SVG,webp}",
-    { eager: true }
-  );
-  const imagesArray = Object.keys(imageModules).map((path) =>
-    path.replace("/public", "")
-  );
-
-  const question = import.meta.env.VITE_QUESTION || "Você aceita?";
-
   return (
     <>
-      <FloatingBackground images={imagesArray} />
+      <FloatingBackground/>
       <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden p-4">
         {/* Pergunta */}
         <h1 className="z-5 text-5xl md:text-5xl font-bold text-center mb-12 text-zinc-200">

@@ -13,11 +13,23 @@ interface FloatingBackgroundProps {
   images: string[];
 }
 
-export function FloatingBackground({ images }: FloatingBackgroundProps) {
+export function FloatingBackground() {
   const [items, setItems] = useState<FloatingItem[]>([]);
   const idCounter = useRef(0);
 
+    const getImagesPath = () => {
+      const imageModules = import.meta.glob(
+        "/public/question/photos/*.{png,jpg,jpeg,SVG,webp}",
+        { eager: true }
+      );
+      return Object.keys(imageModules).map((path) =>
+        path.replace("/public", "")
+      );
+    }
+
   useEffect(() => {
+    const images = getImagesPath();
+
     if (images.length === 0) return;
 
     const spawnItem = () => {
@@ -62,7 +74,7 @@ export function FloatingBackground({ images }: FloatingBackgroundProps) {
     const intervalId = setInterval(spawnItem, 800);
 
     return () => clearInterval(intervalId);
-  }, [images]);
+  }, []);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none -z-10">
