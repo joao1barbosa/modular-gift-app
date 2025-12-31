@@ -3,13 +3,9 @@ import { QuestionPage } from "./pages/QuestionPage";
 import { ResponsePage } from "./pages/ResponsePage";
 
 function  App() {
-  const bgColor = import.meta.env.VITE_BACKGROUND_COLOR|| "#090909";
 
   return (
-    <div 
-      className={`flex flex-col justify-center items-center h-screen w-screen text-zinc-200`}
-      style={{ backgroundColor: bgColor }}
-    >
+    <div className={`flex flex-col justify-center items-center h-screen w-screen text-zinc-200`}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<QuestionPage />} />
