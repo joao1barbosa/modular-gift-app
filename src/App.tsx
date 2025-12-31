@@ -5,8 +5,6 @@ import { ResponsePage } from "./pages/ResponsePage";
 function  App() {
   const bgColor = import.meta.env.VITE_BACKGROUND_COLOR|| "#090909";
 
-  console.log(bgColor);
-
   return (
     <div 
       className={`flex flex-col justify-center items-center h-screen w-screen text-zinc-200`}

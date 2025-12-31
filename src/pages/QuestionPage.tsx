@@ -7,11 +7,13 @@ export function QuestionPage() {
   const { hasStarted, position, moveButton } = useMovable();
   const isDesktop = useMediaQuery({ minWidth: 1025 });
 
-  // if (!isDesktop){
-  //   return (
-  //     <h1 className="z-5 text-5xl md:text-5xl font-bold text-center mb-12 text-zinc-200">Abra no computador</h1>
-  //   );
-  // }
+  const onlyDesktop = import.meta.env.VITE_ONLY_DESKTOP || false;
+
+  if (onlyDesktop && !isDesktop){
+    return (
+      <h1 className="z-5 text-5xl md:text-5xl font-bold text-center mb-12">Abra no computador</h1>
+    );
+  }
 
   const imageModules = import.meta.glob(
     "/public/question/photos/*.{png,jpg,jpeg,SVG,webp}",
